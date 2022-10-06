@@ -1,0 +1,30 @@
+<div class="flex flex-col absolute top-0 bottom-0 left-0 right-0">
+  <mat-toolbar color="primary" class="flex justify-between z-10 fixed">
+    <div class="flex items-center">
+      <button mat-icon-button (click)="sideNav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="pl-3">Welcome to UTN</span>
+    </div>
+
+    <div>
+      <button mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="flex-auto mt-16">
+    <mat-sidenav #sideNav mode="over" fixedTopGap="62">
+      <mat-nav-list class="w-60">
+        <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav">
+          <mat-icon class="mr-3">{{ nav.icon }}</mat-icon> {{ nav.name }}</a
+        >
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
